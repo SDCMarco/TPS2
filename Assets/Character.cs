@@ -37,6 +37,11 @@ public class Character : NetworkBehaviour
         }
     }
 
+    internal void ChangeHpLocally(int damage)
+    {
+        GetComponentInChildren<TextMeshPro>().text = (Hp-damage).ToString() + "/" + hpMax.ToString();
+    }
+
     private void CharacterDeath()
     {
         OnCharacterDeath.Invoke();

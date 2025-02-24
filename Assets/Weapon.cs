@@ -26,7 +26,9 @@ public class Weapon : MonoBehaviour
             Character characterHit = raycastHit.collider.gameObject.GetComponentInParent<Character>();
             if(characterHit != null)
             {
-                characterHit.RPC_ChangeHp(-GetDamage());
+                int damage = -GetDamage();
+                characterHit.RPC_ChangeHp(damage);
+                characterHit.ChangeHpLocally(damage);
             }
         }
     }
